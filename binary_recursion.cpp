@@ -33,7 +33,9 @@ int main() {
 	vector<string> binary_strings = generate_all_binary_strings(n);
 	
 	//output
-	cout << binary_strings;
+	for (const string&str : binary_strings) {
+		cout << str << endl;
+	}
 
 	return 0;
 }
