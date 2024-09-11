@@ -15,7 +15,7 @@ void generate_binary_strings(int n, string str, vector<string>& accept_str) {
 	if (str.back() =='1') {
 		generate_binary_strings(n, str + "0", accept_str);
 	}
-	elif (str.back() == '0') {
+	else {
 		generate_binary_strings(n, str + "1", accept_str);
 	}
 }
@@ -33,7 +33,7 @@ int main() {
 	vector<string> binary_strings = generate_all_binary_strings(n);
 	
 	//output
-	cout << accept_str;
+	cout << binary_strings;
 
 	return 0;
 }
