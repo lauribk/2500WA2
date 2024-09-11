@@ -12,8 +12,9 @@ void generate_binary_strings(int n, string str, vector<string>& accept_str) {
 	}
 	
 	//recursion: add to the string
-	if (str.back() =='1') {
+	if (str.empty() || str.back() == '1') {
 		generate_binary_strings(n, str + "0", accept_str);
+		generate_binary_strings(n, str + "1", accept_str);
 	}
 	else {
 		generate_binary_strings(n, str + "1", accept_str);
@@ -34,7 +35,9 @@ int main() {
 	
 	//output
 	for (const string&str : binary_strings) {
-		cout << str << endl;
+		cout << "begin output" << endl;
+		cout <<  str << endl;
+		cout << "end output" << endl;
 	}
 
 	return 0;
