@@ -31,7 +31,7 @@ vector<string> generate_all_binary_strings(int n) {
 
 int main() {
 	//testing input
-	int n = 2;
+	int n = 1;
 	vector<string> binary_strings = generate_all_binary_strings(n);
 	
 	//check that n is valid
