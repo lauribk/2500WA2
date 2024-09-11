@@ -11,17 +11,18 @@ void generate_binary_strings(int n, string str, vector<string>& accept_str) {
 		return;
 	}
 	
-	//recursion: add to the string
+	//if there is a one already, a one or a zero can follow
 	if (str.empty() || str.back() == '1') {
 		generate_binary_strings(n, str + "0", accept_str);
 		generate_binary_strings(n, str + "1", accept_str);
 	}
+	//ensures that there is at least one one within each subset of two elements
 	else {
 		generate_binary_strings(n, str + "1", accept_str);
 	}
 }
 
-//actually returns all the strings
+//actually returns all the strings/ begins the recursion
 vector<string> generate_all_binary_strings(int n) {
 	vector<string> accept_str;
 	generate_binary_strings(n, "", accept_str);
@@ -30,14 +31,17 @@ vector<string> generate_all_binary_strings(int n) {
 
 int main() {
 	//testing input
-	int n = 3;
+	int n = 2;
 	vector<string> binary_strings = generate_all_binary_strings(n);
 	
-	//output
+	//check that n is valid
+	if (n <= 0) {
+		cout << "invalid length n" << endl;
+	}
+
+	//output all of the accepted strings
 	for (const string&str : binary_strings) {
-		cout << "begin output" << endl;
 		cout <<  str << endl;
-		cout << "end output" << endl;
 	}
 
 	return 0;
